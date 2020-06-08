@@ -25,8 +25,7 @@ int main() {
 	
 	TIM_OCInitStrue.TIM_OCMode = TIM_OCMode_PWM2;
 	TIM_OCInitStrue.TIM_OutputState = TIM_OutputState_Enable;
-	TIM_OCInitStrue.TIM_Pulse = 0;
-	TIM_OCInitStrue.TIM_OCPolarity = TIM_OCPolarity_High;
+	TIM_OCInitStrue.TIM_OCPolarity = TIM_OCPolarity_Low;
 	TIM_OC1Init(TIM1, &TIM_OCInitStrue);
 	
 	TIM_CtrlPWMOutputs(TIM1, ENABLE);
@@ -34,13 +33,13 @@ int main() {
 	TIM_Cmd(TIM1, ENABLE);
 	
 	while (1) {
-		TIM_SetCompare1(TIM1, 1850); // 1.5ms  90°
+		TIM_SetCompare1(TIM1, 150); // 1.5ms  90°
 		delay(50000000);
-		TIM_SetCompare1(TIM1, 1950); // 0.5ms   0°
+		TIM_SetCompare1(TIM1, 50); // 0.5ms   0°
 		delay(50000000);
-		TIM_SetCompare1(TIM1, 1850); // 1.5ms  90°
+		TIM_SetCompare1(TIM1, 150); // 1.5ms  90°
 		delay(50000000);
-		TIM_SetCompare1(TIM1, 1750); // 2.5ms 180°
+		TIM_SetCompare1(TIM1, 250); // 2.5ms 180°
 		delay(50000000);
 	}
 }
