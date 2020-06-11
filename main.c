@@ -18,7 +18,7 @@ int main() {
 	GPIO_Init(GPIOA, &GPIO_InitStrue);
 	
 	TIM_TimeBaseInitStrue.TIM_Period        = 2000;         // 20ms = 2000 * 10us
-	TIM_TimeBaseInitStrue.TIM_Prescaler     = 720;          // 10us = 72MHz / 720
+	TIM_TimeBaseInitStrue.TIM_Prescaler     = 720 - 1;          // 10us = 72MHz / 720
 	TIM_TimeBaseInitStrue.TIM_ClockDivision = TIM_CKD_DIV1;
 	TIM_TimeBaseInitStrue.TIM_CounterMode   = TIM_CounterMode_Up;
 	TIM_TimeBaseInit(TIM1, &TIM_TimeBaseInitStrue);
